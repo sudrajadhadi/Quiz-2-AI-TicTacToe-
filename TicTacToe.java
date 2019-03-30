@@ -1,3 +1,11 @@
+/**
+ * An implementation of the game Tic Tac Toe
+ * in Java, with an artificial intelligence using
+ * depth first search.
+ * 
+ * @credit : Ofek Gila
+ */
+
 import java.util.Scanner;
 
 public class TicTacToe {
@@ -34,8 +42,16 @@ public class TicTacToe {
 	}
 
 	public static void main(String... pumpkins) {
+                int type;
 		// Pass 0 for no ai, 1 for ai as X and -1 for ai as O
-		TicTacToe TTT = new TicTacToe(-1);
+                System.out.println("\nWelcome to Tic Tac Toe!");
+                System.out.println("Singleplayer / Multiplayer?");
+                System.out.println("input -1 (bot O) or 1 (bot X) for Singleplayer");
+                System.out.println("input 0 for Multiplayer");
+                Scanner keyboard = new Scanner(System.in);
+                System.out.print("Value : ");
+                type = keyboard.nextInt();
+		TicTacToe TTT = new TicTacToe(type);
 		TTT.run();
 	}
 
@@ -43,8 +59,6 @@ public class TicTacToe {
 	 * This function runs the game
 	 */
 	public void run() {
-		System.out.println("\nWelcome to Tic Tac Toe!");
-
 		printBoard(board);
 		while (!gameOver(board)) {
 			playMove();
